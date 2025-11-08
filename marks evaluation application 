@@ -1,0 +1,10 @@
+START: LDA 2050H  ;Load marks
+       CPI 28H    ;Compare with 40 (28h = 40 decimal)
+       JC FAIL    ;Jump if less than 40
+       JMP PASS   ;Otherwise pass
+FAIL: MVI A,00H   ;00 = Fail
+      STA 2051H
+      JMP END
+PASS: MVI A,01H   ;01 = Pass
+      STA 2051H
+END: HLT  

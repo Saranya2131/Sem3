@@ -1,0 +1,10 @@
+START: LDA 2051h ;Load age
+       CPI 18H   ;Compare with 20 (18H = 20 decimal)
+       JC LOW    ;jump if less than 20
+       JMP HIGH  ;Otherwise high
+LOW: MVI A,00H   ;00 = Low
+     STA 2052H
+     JMP END 
+HIGH: MVI A,01H  ;01 = High
+      STA 2052H
+END: HLT 
